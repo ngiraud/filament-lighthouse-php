@@ -1,11 +1,11 @@
 {
     "private": true,
     "scripts": {
-        "dev:styles": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/skeleton.css --postcss --watch",
-        "dev:scripts": "esbuild resources/js/plugin.js --bundle --sourcemap=inline --outfile=resources/dist/skeleton.js --watch",
-        "build:styles": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/skeleton.css --postcss --minify && npm run purge",
-        "build:scripts": "esbuild resources/js/plugin.js --bundle --minify --outfile=resources/dist/skeleton.js",
-        "purge": "filament-purge -i resources/dist/skeleton.css -o resources/dist/skeleton.css",
+        "dev:styles": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-lighthouse-php.css --postcss --watch",
+        "dev:scripts": "esbuild resources/js/plugin.js --bundle --sourcemap=inline --outfile=resources/dist/filament-lighthouse-php.js --watch",
+        "build:styles": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-lighthouse-php.css --postcss --minify && npm run purge",
+        "build:scripts": "esbuild resources/js/plugin.js --bundle --minify --outfile=resources/dist/filament-lighthouse-php.js",
+        "purge": "filament-purge -i resources/dist/filament-lighthouse-php.css -o resources/dist/filament-lighthouse-php.css",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm-run-all build:*"
     },
@@ -17,6 +17,8 @@
         "postcss": "^8.4.14",
         "prettier": "^2.7.1",
         "prettier-plugin-tailwindcss": "^0.1.13",
-        "tailwindcss": "^3.1.6"
+        "tailwindcss": "^3.1.6",
+        "chrome-launcher": "^0.15.1",
+        "lighthouse": "^9.6.8"
     }
 }

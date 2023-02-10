@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "ngiraud/filament-lighthouse-php",
+    "description": "Filament plugin for the Lighthouse PHP package from Spatie",
     "keywords": [
-        ":vendor_name",
+        "ngiraud",
         "laravel",
-        ":package_slug"
+        "filament-lighthouse-php"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/ngiraud/filament-lighthouse-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Nicolas Giraud",
+            "email": "contact@ngiraud.me",
             "role": "Developer"
         }
     ],
@@ -19,7 +19,8 @@
         "php": "^8.0",
         "filament/filament": "^2.0",
         "spatie/laravel-package-tools": "^1.13.5",
-        "illuminate/contracts": "^9.0"
+        "illuminate/contracts": "^9.0",
+        "spatie/lighthouse-php": "^1.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -38,13 +39,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Ngiraud\\FilamentLighthouse\\": "src",
+            "Ngiraud\\FilamentLighthouse\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Ngiraud\\FilamentLighthouse\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,10 +68,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Ngiraud\\FilamentLighthouse\\FilamentLighthouseServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentLighthouse": "Ngiraud\\FilamentLighthouse\\Facades\\FilamentLighthouse"
             }
         }
     },
