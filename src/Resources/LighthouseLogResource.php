@@ -2,7 +2,6 @@
 
 namespace Ngiraud\FilamentLighthouse\Resources;
 
-use Filament\Forms\Components\KeyValue;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -23,7 +22,6 @@ class LighthouseLogResource extends Resource
     {
         return $form
             ->schema([
-                KeyValue::make('audits'),
             ]);
     }
 
@@ -53,7 +51,7 @@ class LighthouseLogResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->hidden(fn(LighthouseLog $record) => !$record->isGenerated()),
+                Tables\Actions\ViewAction::make()->hidden(fn (LighthouseLog $record) => ! $record->isGenerated()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

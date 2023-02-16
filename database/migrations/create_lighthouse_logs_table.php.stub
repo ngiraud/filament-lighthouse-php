@@ -16,7 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->string('device')->index();
             $table->unsignedTinyInteger('status')->index();
-            $table->longText('report')->nullable();
+            $table->json('report')->nullable();
+            $table->timestamp('generated_at')->nullable();
             $table->timestamps();
         });
     }

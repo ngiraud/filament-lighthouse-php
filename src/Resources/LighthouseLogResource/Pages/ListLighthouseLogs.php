@@ -26,7 +26,7 @@ class ListLighthouseLogs extends ListRecords
                       Select::make('device')
                             ->label(__('Device'))
                             ->options(collect(FormFactor::cases())->mapWithKeys(
-                                fn($item) => [$item->value => Str::ucfirst(__($item->label()))])
+                                fn ($item) => [$item->value => Str::ucfirst(__($item->label()))])
                             )
                             ->required(),
                   ]),

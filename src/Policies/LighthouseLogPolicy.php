@@ -13,7 +13,6 @@ class LighthouseLogPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param \App\Models\User $user
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
@@ -25,9 +24,7 @@ class LighthouseLogPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param \App\Models\User $user
-     * @param \App\Models\Page $page
-     *
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, LighthouseLog $log)

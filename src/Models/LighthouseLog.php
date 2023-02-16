@@ -3,9 +3,11 @@
 namespace Ngiraud\FilamentLighthouse\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Ngiraud\FilamentLighthouse\Database\Factories\LighthouseLogFactory;
 use Ngiraud\FilamentLighthouse\Enums\Status;
 use Spatie\Lighthouse\Enums\FormFactor;
 use Spatie\Lighthouse\LighthouseResult;
@@ -38,13 +40,13 @@ class LighthouseLog extends Model
 
     public function isGenerated(): bool
     {
-        return $this->status === Status::Success && !is_null($this->generated_at);
+        return $this->status === Status::Success && ! is_null($this->generated_at);
     }
 
     protected function deviceForHumans(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => Str::ucfirst(__($attributes['device'])),
+            get: fn ($value, $attributes) => Str::ucfirst(__($attributes['device'])),
         );
     }
 
@@ -55,5 +57,10 @@ class LighthouseLog extends Model
         }
 
         return new LighthouseResult(json_decode($this->report ?? [], true));
+    }
+
+    protected static function newFactory(): Factory
+    {
+        return LighthouseLogFactory::new();
     }
 }

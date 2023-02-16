@@ -19,7 +19,7 @@ class FilamentLighthouseServiceProvider extends PluginServiceProvider
     ];
 
     protected array $pages = [
-//        Lighthouse::class,
+        //        Lighthouse::class,
     ];
 
     protected array $widgets = [
@@ -27,11 +27,11 @@ class FilamentLighthouseServiceProvider extends PluginServiceProvider
     ];
 
     protected array $styles = [
-//        'plugin-filament-lighthouse-php' => __DIR__ . '/../resources/dist/filament-lighthouse-php.css',
+        //        'plugin-filament-lighthouse-php' => __DIR__ . '/../resources/dist/filament-lighthouse-php.css',
     ];
 
     protected array $scripts = [
-//        'plugin-filament-lighthouse-php' => __DIR__ . '/../resources/dist/filament-lighthouse-php.js',
+        //        'plugin-filament-lighthouse-php' => __DIR__ . '/../resources/dist/filament-lighthouse-php.js',
     ];
 
     // protected array $beforeCoreScripts = [
