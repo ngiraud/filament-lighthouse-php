@@ -3,7 +3,10 @@
 namespace Ngiraud\FilamentLighthouse;
 
 use Filament\PluginServiceProvider;
-use Ngiraud\FilamentLighthouse\Pages\Lighthouse;
+use Illuminate\Support\Facades\Gate;
+use Ngiraud\FilamentLighthouse\Models\LighthouseLog;
+use Ngiraud\FilamentLighthouse\Policies\LighthouseLogPolicy;
+use Ngiraud\FilamentLighthouse\Resources\LighthouseLogResource;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentLighthouseServiceProvider extends PluginServiceProvider
@@ -11,11 +14,12 @@ class FilamentLighthouseServiceProvider extends PluginServiceProvider
     public static string $name = 'filament-lighthouse-php';
 
     protected array $resources = [
+        LighthouseLogResource::class,
         // CustomResource::class,
     ];
 
     protected array $pages = [
-        Lighthouse::class,
+//        Lighthouse::class,
     ];
 
     protected array $widgets = [
@@ -38,8 +42,16 @@ class FilamentLighthouseServiceProvider extends PluginServiceProvider
     {
         $package->name(static::$name)
                 ->hasViews()
+                ->hasTranslations()
                 ->hasRoute('web')
                 ->hasMigration('create_lighthouse_logs_table')
                 ->runsMigrations();
+    }
+
+    public function boot()
+    {
+        parent::boot();
+
+        Gate::policy(LighthouseLog::class, LighthouseLogPolicy::class);
     }
 }

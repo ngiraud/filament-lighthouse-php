@@ -36,15 +36,15 @@ class GenerateLighthouseReport implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         try {
-            $result = Lighthouse::url('https://nicolasgiraud.fr')
-                                ->withChromeOptions($this->chromeOptions)
-                                ->formFactor($this->log->device)
-                                ->run();
-
-            $this->log->markAsSuccess(['report' => $result->html()]);
+            $this->log->markAsSuccess(
+                Lighthouse::url(config('app.url'))
+                          ->withChromeOptions($this->chromeOptions)
+                          ->formFactor($this->log->device)
+                          ->run()
+            );
         } catch (Exception $e) {
             $this->log->markAsFail();
         }
